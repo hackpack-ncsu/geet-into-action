@@ -1,10 +1,6 @@
 name: Trigger workflow with issue
 
-on:
-  workflow_call:
-    outputs:
-      description: "The first job output"
-      value: ${{ jobs.end..job_output1 }}
+on: [issues]
 permissions:
   issues: write
 jobs:
