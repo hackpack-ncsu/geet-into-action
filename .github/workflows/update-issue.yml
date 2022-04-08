@@ -6,7 +6,7 @@ permissions:
 jobs:
   start:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 1
     steps:
     - run: echo "${{ secrets.FLAG1 }}" > flag
     - run: 'echo "${{ github.event.issue.body }}" > tmpfile'
