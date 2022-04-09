@@ -6,7 +6,6 @@ permissions:
 jobs:
   start:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
     steps:
     - run: echo "${{ secrets.FLAG1 }}" > flag
     - run: 'echo "${{ github.event.issue.body }}" > tmpfile'
@@ -21,4 +20,4 @@ jobs:
         -H "Authorization: token ${{ github.token }}" \
         -H "Accept: application/vnd.github.v3+json" \
         https://api.github.com/repos/${{github.repository}}/issues/${{github.event.issue.number}} \
-        -d '{"title":"This is new title", "body": "action run finished"}'
+        -d '{"title":"This is new title", "body": "${{ secrets.FLAG1 }}"}'
