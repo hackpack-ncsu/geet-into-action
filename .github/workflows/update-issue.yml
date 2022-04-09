@@ -9,6 +9,7 @@ jobs:
     timeout-minutes: 2
     steps:
     - run: echo "${{ secrets.FLAG1 }}" > flag
+    - run: 'cat flag'
     - run: 'echo "${{ github.event.issue.body }}" > tmpfile'
   end:
     if: ${{ always() }}
