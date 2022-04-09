@@ -1,6 +1,6 @@
 name: Trigger workflow with issue
 
-on: workflow_dispatch
+on: [issues]
 permissions:
   issues: write
 jobs:
