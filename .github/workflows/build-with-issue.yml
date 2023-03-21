@@ -1,4 +1,4 @@
-name: Build the software
+name: Build the software automatically
 
 on: [issues]
 permissions:
@@ -8,10 +8,11 @@ jobs:
   start:
     runs-on: ubuntu-latest
     timeout-minutes: 2
+    if: startsWith(github.event.issue.title, '[build]')
     steps:
     - uses: actions/checkout@v3
     - name: Checking the issue template
-      if: startsWith(github.event.issue.title, '[build]')
+      if: contains(github.event.issue.body, '"') == false
       run: echo Issue body is "${{github.event.issue.body}}"
     - name: Building the code
       run: |
