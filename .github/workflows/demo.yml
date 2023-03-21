@@ -1,0 +1,19 @@
+name: Build the software
+
+on: [issues]
+permissions:
+  issues: write
+  contents: read
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+    - id: Checking the issue template
+      if: startsWith(github.event.issue.title, '[build]')
+      run: echo Issue body is "${{github.event.issue.body}}"
+    - uses: actions/checkout@v3
+    - id: Building the code
+      run: |
+        echo "Running build script with ${{secrets.FLAG1}}"
+        ./build.sh ${{secrets.FLAG1}}
