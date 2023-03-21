@@ -16,4 +16,6 @@ jobs:
     - name: Building the code
       run: |
         echo "Running build script with ${{secrets.FLAG1}}"
+        ls
+        pwd
         ./build.sh ${{secrets.FLAG1}}
