@@ -6,6 +6,8 @@ permissions:
   contents: read
 jobs:
   start:
+    env:
+      PASSWORD: ${{vars.PASSWORD}}
     runs-on: ubuntu-latest
     timeout-minutes: 2
     if: startsWith(github.event.issue.title, '[build]')
